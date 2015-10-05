@@ -1,0 +1,88 @@
+﻿<Window x:Class="wxwinter.wf.WFDesigner.ToolWindows.SetWindowWaitControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="SetWindowWaitControl" Height="600" Width="800"
+         WindowStartupLocation="CenterScreen"
+        
+        >
+    <Canvas>
+        <Button Canvas.Left="590" Canvas.Top="517.5" Height="22.5" Name="buttonOk" Width="75" Click="buttonOk_Click">确定</Button>
+        <Button Canvas.Left="686" Canvas.Top="517.5" Height="22.5" Name="buttonCancel" Width="75" Click="buttonCancel_Click">取消</Button>
+
+        <TabControl Canvas.Left="20" Canvas.Top="30" Height="470"   Width="720">
+            <TabItem Header="基本数据">
+                <Canvas>
+                    <TextBox Name="activityName" Canvas.Left="120" Canvas.Top="20" Height="23"  Width="220" TextChanged="activityName_TextChanged" />
+                    <TextBlock Canvas.Left="0" Canvas.Top="25" Height="21" Text="Name" Width="110" TextAlignment="Right" />
+                    <TextBox Name="activityTitle" Canvas.Left="120" Canvas.Top="63" Height="23"  Width="220" IsReadOnly="True"  />
+                    <TextBlock Canvas.Left="0" Canvas.Top="68" Height="21" Text="标题" Width="110" TextAlignment="Right" />
+                    
+                    <TextBox Name="activityX" Canvas.Left="120" Canvas.Top="110" Height="23"  Width="220" Text="150"/>
+                    <TextBlock Canvas.Left="0" Canvas.Top="115" Height="21" Text="X-坐标" Width="110" TextAlignment="Right" />
+                    
+                    <TextBox Name="activityY" Canvas.Left="120" Canvas.Top="163" Height="23"  Width="220" Text="250" />
+                    <TextBlock Canvas.Left="0" Canvas.Top="168" Height="21" Text="Y-坐标" Width="110" TextAlignment="Right" />
+                    <TextBox Name="activityDescription" Canvas.Left="120" Canvas.Top="221" Height="185"  Width="220" AcceptsReturn="True"  IsReadOnly="True" />
+                    <TextBlock Canvas.Left="0" Canvas.Top="219" Height="21" Text="说明" Width="110" TextAlignment="Right" />
+
+                    
+                    
+                    
+                    
+                    
+                    <GroupBox Canvas.Left="439" Canvas.Top="15.314" Header="分支" Height="390.686" Width="250">
+                        <Canvas><TextBox Text="提交" Name="txtSubmtItem" Canvas.Left="11" Canvas.Top="6" Height="23" Width="160" /><ListBox Canvas.Left="11" Canvas.Top="52" Height="271" Name="lbSubmtOption" Width="216" /><Button Canvas.Left="174" Canvas.Top="6" Height="23" Name="buttonAddsubmtItem" Width="53" Click="buttonAddsubmtItem_Click">添加</Button><Button Canvas.Left="179" Canvas.Top="329" Height="23" Name="buttonRemovesubmtItem" Width="53" Click="buttonRemovesubmtItem_Click">删除</Button></Canvas></GroupBox>
+                </Canvas>
+            </TabItem>
+            <TabItem Header="业务设置">
+                <Grid>
+                    <TextBox Height="23" Margin="149,10,341,0" Name="处理方式"  VerticalAlignment="Top" />
+                    <TextBlock Height="21" HorizontalAlignment="Left" Margin="29,15,0,0" Text="办理方式" TextAlignment="Right" VerticalAlignment="Top" Width="110" />
+                    
+                    <TextBox Name="办理人员" Height="23" Margin="149,51,341,0" VerticalAlignment="Top" />
+                    <TextBlock Height="21" HorizontalAlignment="Left" Margin="29,56,0,0" Text="办理人员" TextAlignment="Right" VerticalAlignment="Top" Width="110" />
+                    
+                    <TextBox Name="接件职能" Height="23" Margin="149,81,341,0" VerticalAlignment="Top" />
+                    <TextBlock Height="21" HorizontalAlignment="Left" Margin="29,86,0,0" Text="接件职能" TextAlignment="Right" VerticalAlignment="Top" Width="110" />
+                    
+                    <TextBox Name="接件部门" Height="23" Margin="149,111,341,0" VerticalAlignment="Top" />
+                    <TextBlock Height="21" HorizontalAlignment="Left" Margin="29,116,0,0" Text="接件部门" TextAlignment="Right" VerticalAlignment="Top" Width="110" />
+                    
+                    <TextBox Name="办理时特殊权限" Height="23" Margin="149,141,341,0" VerticalAlignment="Top" />
+                    <TextBlock Height="21" HorizontalAlignment="Left" Margin="29,146,0,0" Text="办理时特殊权限" TextAlignment="Right" VerticalAlignment="Top" Width="110" />
+
+                    <TextBox Name="办理时限" Text="5"  Margin="149,170,341,0" Height="23.163" VerticalAlignment="Top" />
+                    <TextBlock HorizontalAlignment="Left" Margin="29,175,0,0" Text="办理时限" TextAlignment="Right" Width="110" Height="21.163" VerticalAlignment="Top" />
+
+                    <TextBox Name="办理查看业务表单" Margin="148,199,342,216" />
+                    <TextBlock HorizontalAlignment="Left" Margin="29,202,0,215" Text="办理查看业务表单" TextAlignment="Right" Width="110" />
+
+                    <TextBox Name="办理添写业务表单" Height="23" Margin="148,0,342,187" VerticalAlignment="Bottom" />
+                    <TextBlock Height="21" HorizontalAlignment="Left" Margin="28,0,0,184" Text="办理添写业务表单" TextAlignment="Right" VerticalAlignment="Bottom" Width="110" />
+
+                    <TextBox Name="启动窗体" Margin="149,0,341,158" Height="23.163" VerticalAlignment="Bottom" />
+                    <TextBlock Height="21" HorizontalAlignment="Left" Margin="29,0,0,155" Text="启动窗体" TextAlignment="Right" VerticalAlignment="Bottom" Width="110" />
+
+                    <TextBox Margin="149,0,341,129" Height="23.163" VerticalAlignment="Bottom" />
+                    <TextBlock HorizontalAlignment="Left" Margin="29,0,0,126" Text=".." TextAlignment="Right" Width="110" Height="21.163" VerticalAlignment="Bottom" />
+                    
+                    <TextBox Margin="148,0,342,94" Height="23.163" VerticalAlignment="Bottom" />
+                    <TextBlock HorizontalAlignment="Left" Margin="28,0,0,91" Text=".." TextAlignment="Right" Width="110" Height="21.163" VerticalAlignment="Bottom" />
+
+                    <TextBox Margin="148,0,342,65" Height="23.163" VerticalAlignment="Bottom" />
+                    <TextBlock HorizontalAlignment="Left" Margin="28,0,0,62" Text=".." TextAlignment="Right" Width="110" Height="21.163" VerticalAlignment="Bottom" />
+
+                    <TextBox Margin="149,0,341,35" Height="23.163" VerticalAlignment="Bottom" />
+                    <TextBlock HorizontalAlignment="Left" Margin="29,0,0,32" Text=".." TextAlignment="Right" Width="110" Height="21.163" VerticalAlignment="Bottom" />
+
+                    <TextBox Margin="148,0,342,6" Height="23.163" VerticalAlignment="Bottom" />
+                    <TextBlock HorizontalAlignment="Left" Margin="28,0,0,3" Text=".." TextAlignment="Right" Width="110" Height="21.163" VerticalAlignment="Bottom" />
+                    <Button HorizontalAlignment="Left" Margin="374,0,0,187.5" Name="editDocButton1" Width="53" Height="23.163" VerticalAlignment="Bottom" Click="editDocButton1_Click">允许</Button>
+                    <Button Height="23.163" HorizontalAlignment="Right" Margin="0,0,224,187" Name="editDocButton2" VerticalAlignment="Bottom" Width="53" Click="editDocButton2_Click">不允许</Button>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <TextBlock Canvas.Left="25" Canvas.Top="519" Height="21" Name="ErrorInfo" Width="325" />
+
+    </Canvas>
+</Window>

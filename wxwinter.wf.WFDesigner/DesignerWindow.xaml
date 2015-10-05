@@ -1,0 +1,57 @@
+﻿<Window x:Class="wxwinter.wf.WFDesigner.DesignerWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="DesignerWindow" Height="768" Width="1024"
+    xmlns:mycontrol="clr-namespace:wxwinter.wf.WFDesigner"
+         WindowStartupLocation="CenterScreen" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="0" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0" />
+           
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="0" />
+        </Grid.ColumnDefinitions>
+        <mycontrol:DesignerControl x:Name="designer"  Grid.Column="1" Grid.Row="2">
+        
+        </mycontrol:DesignerControl>
+        <ToolBar Grid.Column="1" Grid.Row="1" >
+
+            <Button Name="buttonSetWorkflow" Width="100" Height="30" Click="buttonSetWorkflow_Click" >流程设置</Button>
+
+            <Button Name="buttonWaitActivity" Width="100" Height="30" Click="buttonWaitActivity_Click">添加[到组]</Button>
+            <Button Name="buttonSelfWaitActivity" Width="100" Height="30" Click="buttonSelfWaitActivity_Click">添加[到人]</Button>
+
+
+        </ToolBar>
+        <Menu Grid.Column="1">
+            <MenuItem  Name="menu_Create" Header="新建流程"   Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="menu_Create_Click" />
+
+
+            <MenuItem  Name="menu_Test" Header="测试流程"   Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="menu_Test_Click" />
+
+
+
+            <MenuItem  Name="menu_Clear" Header="清空设计区"   Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="menu_Clear_Click" />
+            
+            <MenuItem  Name="buttonSize"    Click="buttonSize_Click" Header="设置画布尺寸" ></MenuItem>
+            <MenuItem Header="缩放画布">
+                <MenuItem    Click="buttonScaleTransform_Click" Header="10%" ></MenuItem>
+                <MenuItem    Click="buttonScaleTransform_Click" Header="30%"  ></MenuItem>
+                <MenuItem    Click="buttonScaleTransform_Click" Header="50%"  ></MenuItem>
+                <MenuItem    Click="buttonScaleTransform_Click" Header="70%"  ></MenuItem>
+                <MenuItem    Click="buttonScaleTransform_Click" Header="90%" ></MenuItem>
+                <MenuItem    Click="buttonScaleTransform_Click" Header="100%"  ></MenuItem>
+                <MenuItem    Click="buttonScaleTransform_Click" Header="120%"  ></MenuItem>
+                <MenuItem    Click="buttonScaleTransform_Click" Header="150%"  ></MenuItem>
+                <MenuItem    Click="buttonScaleTransform_Click" Header="200%"  ></MenuItem>
+                <MenuItem    Click="buttonScaleTransform_Click" Header="300%"  ></MenuItem>
+            </MenuItem>
+        </Menu>
+    </Grid>
+</Window>

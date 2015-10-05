@@ -1,0 +1,58 @@
+﻿<mycontrol:ActivityControl x:Class="wxwinter.wf.WFDesigner.WaitControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Height="100" Width="200"
+    Canvas.Left="0" Canvas.Top="0"
+     AllowDrop="True"   PreviewDrop="UserControl_PreviewDrop"    
+      xmlns:mycontrol="clr-namespace:wxwinter.wf.WFDesigner"
+                             Opacity="0.9"
+             >
+    <mycontrol:ActivityControl.Resources>
+        <LinearGradientBrush EndPoint="50,0" StartPoint="0,0" MappingMode="Absolute" x:Key="b5">
+            <GradientStop Color="#FFF8F8F8" Offset="0"/>
+            <GradientStop Color="#FF554F4D" Offset="2"/>
+        </LinearGradientBrush>
+
+        <DataTemplate x:Key="submtOptionList" >
+            <Border Margin="2,2,2,2"   BorderBrush="Black" BorderThickness="1"  Background="{StaticResource ResourceKey=b5}" >
+                   <TextBlock    Text="{Binding Path=.}" PreviewMouseLeftButtonDown="link_PreviewMouseLeftButtonDown" VerticalAlignment="Center" />
+             </Border>
+        </DataTemplate>
+        <ItemsPanelTemplate x:Key="vlist">
+            <WrapPanel Width="180"  Height="44" />
+        </ItemsPanelTemplate>
+    </mycontrol:ActivityControl.Resources>
+    <Border BorderThickness="1,1,1,1" CornerRadius="10,10,10,10" BorderBrush="#FF000000">
+
+        <Border.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF4D76F4" Offset="1"/>
+                <GradientStop Color="#FFE6EBF0" Offset="0"/>
+            </LinearGradientBrush>
+        </Border.Background>
+        <StackPanel  x:Name="Activity"    >
+           
+            <Canvas>
+                <Thumb  Height="20" DragStarted="thumb_DragStarted" DragCompleted="thumb_DragCompleted" DragDelta="thumb_DragDelta" Foreground="{x:Null}" ClipToBounds="False" BorderThickness="5,2,5,0" Width="138" Canvas.Top="-7" Canvas.Left="31">
+                    <Thumb.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF115EEB" Offset="0"/>
+                            <GradientStop Color="#FFFFFFFF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Thumb.Background>
+                </Thumb>
+                <TextBlock  Name="title"  FontSize="15" Text="标题" Canvas.Left="3" Width="196" Height="18" Canvas.Top="13" Foreground="Brown" TextAlignment="Center" />
+                 <TextBlock Name="description"  Text="说明" Canvas.Left="3" Width="187" Height="37" Canvas.Top="36" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" />
+                <Image Name="setData" MouseUp="setData_MouseUp" Source="/wxwinter.wf.WFDesigner;component/image/info.png"  Canvas.Top="18" Canvas.Left="181" Height="16" Width="16" />
+
+                
+                <Image Name="del" MouseUp="del_MouseUp" Source="/wxwinter.wf.WFDesigner;component/image/del.png"  Canvas.Top="1.334" Canvas.Left="180.757" Width="16.008" Height="16.008" />
+                
+                <Image Name="img_activite" Source="/wxwinter.wf.WFDesigner;component/image/activite.png" Width="16" Visibility="Hidden" Height="16" Canvas.Top="45" Canvas.Left="-15" />
+
+                <ItemsControl ItemsPanel="{StaticResource vlist}" ItemTemplate="{StaticResource submtOptionList}" Height="44" Name="submtOption" Width="196" Canvas.Top="70" Canvas.Left="3" Background="{x:Null}" BorderThickness="0,0,0,0" />
+            </Canvas>
+            
+        </StackPanel>
+    </Border>
+</mycontrol:ActivityControl>

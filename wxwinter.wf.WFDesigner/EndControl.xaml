@@ -1,0 +1,31 @@
+﻿<mycontrol:ActivityControl x:Class="wxwinter.wf.WFDesigner.EndControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Height="50" Width="110"
+     Canvas.Left="300" Canvas.Top="500"
+     AllowDrop="True"   PreviewDrop="UserControl_PreviewDrop"    
+     xmlns:mycontrol="clr-namespace:wxwinter.wf.WFDesigner"
+     >
+    <Border 
+		BorderThickness="1,1,1,1" CornerRadius="10,10,10,10" BorderBrush="#FF000000" >
+        <Border.Background>
+            <RadialGradientBrush>
+                <GradientStop Color="#FFF46D54" Offset="1"/>
+                <GradientStop Color="#FFFFFFFF" Offset="0"/>
+            </RadialGradientBrush>
+        </Border.Background>
+
+        <Canvas >
+            <Thumb  Height="20" DragStarted="thumb_DragStarted" DragCompleted="thumb_DragCompleted" DragDelta="thumb_DragDelta" Foreground="{x:Null}" ClipToBounds="False" BorderThickness="5,2,5,0" Width="61" Canvas.Left="24" Canvas.Top="-6">
+                <Thumb.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF115EEB" Offset="0"/>
+                        <GradientStop Color="#FFFFFFFF" Offset="1"/>
+                    </LinearGradientBrush>
+                </Thumb.Background>
+            </Thumb>
+            <TextBlock Width="53" Height="16" Text="归档状态" TextWrapping="Wrap" Canvas.Left="29" Canvas.Top="21.5"/>
+			</Canvas>
+
+    </Border>
+</mycontrol:ActivityControl>

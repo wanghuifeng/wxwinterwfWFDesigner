@@ -1,0 +1,20 @@
+﻿<Application x:Class="wxwinter.wf.WFDesigner.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    StartupUri="DesignerWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Brushes.xaml"/>
+                <ResourceDictionary Source="Resources/Expander.xaml"/>
+                <ResourceDictionary Source="Resources/ScrollBar.xaml"/>
+                <ResourceDictionary Source="Resources/ScrollViewer.xaml"/>
+                <ResourceDictionary Source="Resources/Slider.xaml"/>
+                <ResourceDictionary Source="Resources/Tooltip.xaml"/>
+                <ResourceDictionary Source="Resources/ZoomBox.xaml"/>
+                <ResourceDictionary Source="Resources/ToolBar.xaml"/>
+                <ResourceDictionary Source="Resources/StatusBar.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,14 @@
+﻿<Window x:Class="wxwinter.wf.WFDesigner.ToolWindows.SetWindowFlowChart"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="SetWindowFlowChart" Height="300" Width="300">
+    <Canvas>
+        <Button Canvas.Left="88" Canvas.Top="231" Height="23" Name="buttonOk" Width="75" Click="buttonOk_Click">确定</Button>
+        <Button Canvas.Left="189" Canvas.Top="231" Height="23" Name="buttonCancel" Width="75" Click="buttonCancel_Click">取消</Button>
+        <TextBox Canvas.Left="88" Canvas.Top="64" Height="23" Name="tbWidth" Width="120" />
+        <TextBox Canvas.Left="88" Canvas.Top="111" Height="23" Name="tbHeight" Width="120" />
+        <TextBlock Canvas.Left="30" Canvas.Top="114" Height="21" Text="高" Width="52" TextAlignment="Right" />
+        <TextBlock Canvas.Left="30" Canvas.Top="67" Height="21" Text="宽" Width="52" TextAlignment="Right" />
+
+    </Canvas>
+</Window>

@@ -1,0 +1,34 @@
+﻿<mycontrol:ActivityControl x:Class="wxwinter.wf.WFDesigner.BeginControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Width="80" Height="80"
+  Canvas.Left="0" Canvas.Top="0"
+              xmlns:mycontrol="clr-namespace:wxwinter.wf.WFDesigner"
+   >
+    
+    <Border 
+		BorderThickness="1,1,1,1" CornerRadius="40,40,40,40" BorderBrush="#FF000000" >
+
+     
+        <Canvas >
+            <Thumb   DragStarted="thumb_DragStarted" DragCompleted="thumb_DragCompleted" DragDelta="thumb_DragDelta" Foreground="{x:Null}" ClipToBounds="False"  >
+                <Thumb.Template>
+                    <ControlTemplate>
+                        <Grid>
+                            <Ellipse StrokeThickness="1" Stroke="Gray" Width="80" Height="80">
+                                <Ellipse.Fill>
+                                    <RadialGradientBrush>
+                                        <GradientStop Color="Green"  Offset="1"/>
+                                        <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                                    </RadialGradientBrush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <TextBlock Foreground="Red" Text="开始状态" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Thumb.Template>
+            </Thumb>
+        </Canvas>
+
+    </Border>
+</mycontrol:ActivityControl>
