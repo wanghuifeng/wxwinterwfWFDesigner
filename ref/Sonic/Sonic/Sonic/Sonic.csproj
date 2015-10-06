@@ -1,0 +1,203 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)'==''">Debug</Configuration>
+    <DefaultClrNameSpace>Sonic</DefaultClrNameSpace>
+    <AssemblyName>Sonic</AssemblyName>
+    <RootNamespace>Sonic</RootNamespace>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <ApplicationVersion>1.0.0.*</ApplicationVersion>
+    <ApplicationRevision>0</ApplicationRevision>
+    <AlwaysCompileMarkupFilesInSeparateDomain>false</AlwaysCompileMarkupFilesInSeparateDomain>
+    <ExpressionBlendCreationVersion>2.0.1523.0</ExpressionBlendCreationVersion>
+    <ProjectGuid>{0CC95FCE-2BE1-446C-81C6-729C95FAF3F9}</ProjectGuid>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <OutputType>WinExe</OutputType>
+    <ApplicationIcon>Application.ico</ApplicationIcon>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="GAPI, Version=0.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\GAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework.Luna">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UltraID3Lib, Version=0.9.6.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\UltraID3Lib.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Attributes\LocalizableDescriptionAttribute.cs" />
+    <Compile Include="Configuration\MusicLocationElement.cs" />
+    <Compile Include="Configuration\MusicLocationElementCollection.cs" />
+    <Compile Include="Configuration\MusicLocationLookupConfigSection.cs" />
+    <Compile Include="EventArgs\AlbumClickedEventArgs.cs" />
+    <Compile Include="EventArgs\MP3FileClickedEventArgs.cs" />
+    <Compile Include="ExtensionMethods\WPFControlThreadingExtensions.cs" />
+    <Compile Include="LINQ\LINQ to SQL\SQLMP3s.cs">
+      <DependentUpon>SQLMP3s.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="LINQ\LINQ to SQL\SQLMP3s.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SQLMP3s.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Misc\DragAndDropHelper.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Value Converters\BoolToHiddenConverter.cs" />
+    <Compile Include="ViewModels\MP3FileViewModel.cs" />
+    <Compile Include="Views\AlbumView.xaml.cs">
+      <DependentUpon>AlbumView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AlbumView3D.xaml.cs">
+      <DependentUpon>AlbumView3D.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Friction Scroll Viewer\FrictionScrollViewer.cs" />
+    <Compile Include="ViewModels\AlbumOfMP3ViewModel.cs" />
+    <Compile Include="LINQ\MP3Provider.cs" />
+    <Compile Include="LINQ\MP3s.cs" />
+    <Compile Include="LINQ\Query.cs" />
+    <Compile Include="LINQ\QueryProvider.cs" />
+    <Compile Include="Misc\Globals.cs" />
+    <Compile Include="LINQ\XMLAndSQLQueryOperations.cs" />
+    <Compile Include="Misc\AssemblyInfo.cs" />
+    <Compile Include="Misc\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Circular Progress Bar\CircularProgressBar.xaml.cs">
+      <DependentUpon>CircularProgressBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Fancy Button\FancyButton.xaml.cs">
+      <DependentUpon>FancyButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Value Converters\EnumToFriendlyNameConverter.cs" />
+    <Compile Include="ViewModels\Commands\SimpleCommand.cs" />
+    <Compile Include="Views\MP3FileView.xaml.cs">
+      <DependentUpon>MP3FileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Value Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\MediaViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\MediaView.xaml.cs">
+      <DependentUpon>MediaView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Resources\AppStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\GlobalConverters.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AlbumView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AlbumView3D.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Circular Progress Bar\CircularProgressBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Fancy Button\FancyButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MP3FileView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MediaView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\NoImage.png" />
+    <Resource Include="Images\header.png" />
+    <Resource Include="Images\SonicLogo.png" />
+    <None Include="App.config" />
+    <None Include="LINQ\LINQ to SQL\SQLMP3s.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>SQLMP3s.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="LINQ\LINQ to SQL\SQLMP3s.dbml.layout">
+      <DependentUpon>SQLMP3s.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="Misc\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MP3TagGenres.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Mp3.png" />
+    <Resource Include="Images\target.png" />
+    <Content Include="Lib\GAPI.dll" />
+    <Content Include="Lib\UltraID3Lib.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+</Project>

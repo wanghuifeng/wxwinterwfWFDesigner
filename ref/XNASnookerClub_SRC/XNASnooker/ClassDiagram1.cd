@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Snooker.Client.XNA.Controls.XNAButton">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAABAAAgAQAQgCAAEAAAAAAAAAIAAAACAAAAAA=</HashCode>
+      <FileName>Controls\XNAButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Snooker.Client.XNA.Controls.XNARadioButton">
+    <Position X="4.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQIAAAABAAAACAAgCAAAAAAAAAAAAIAAAACAAAAAA=</HashCode>
+      <FileName>Controls\XNARadioButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Snooker.Client.Core.Model.Sprite">
+    <Position X="2.5" Y="0.75" Width="1.25" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

@@ -1,0 +1,6 @@
+﻿<StateMachineWorkflowDesigner xmlns:ns0="clr-namespace:System.Drawing;Assembly=System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" Name="状态机工作流" Location="30, 30" Size="648, 579" AutoSizeMargin="16, 24" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow">
+	<StateMachineWorkflowDesigner.Designers>
+		<StateDesigner Name="开始" Location="48, 76" Size="169, 80" AutoSizeMargin="16, 24" />
+		<StateDesigner Name="结束" Location="284, 402" Size="160, 80" AutoSizeMargin="16, 24" />
+	</StateMachineWorkflowDesigner.Designers>
+</StateMachineWorkflowDesigner>

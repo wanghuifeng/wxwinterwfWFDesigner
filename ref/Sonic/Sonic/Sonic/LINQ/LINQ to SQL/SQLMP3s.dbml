@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="MP3s" Class="SQLMP3sDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=VISTA01;Initial Catalog=MP3s;User ID=sa" SettingsObjectName="Sonic.Properties.Settings" SettingsPropertyName="MP3sConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.MP3" Member="MP3s">
+    <Type Name="MP3">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FileName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Album" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Artist" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="GenreName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

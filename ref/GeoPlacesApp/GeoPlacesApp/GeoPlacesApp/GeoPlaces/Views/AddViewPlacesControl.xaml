@@ -1,0 +1,308 @@
+﻿<UserControl x:Class="GeoPlaces.AddViewPlacesControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:thriple="http://thriple.codeplex.com/"    
+    xmlns:local="clr-namespace:GeoPlaces;assembly="             
+    x:Name="parentControl"
+    Height="800" Width="800" Background="Transparent">
+
+    
+    <UserControl.Resources>
+        
+        
+        <ControlTemplate x:Key="flipperButtonTemplate" TargetType="{x:Type Button}">
+            <Grid Width="50" Height="50">
+                <Ellipse x:Name="ell" Fill="Transparent" Stroke="Transparent" 
+                         StrokeThickness="4"
+                         Width="50" 
+                         Height="50"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Center"/>
+                <Label Content="q" HorizontalAlignment="Center"
+                       FontFamily="Webdings" FontSize="30"
+                            VerticalAlignment="Center" Foreground="Black"/>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter TargetName="ell" Property="Stroke" Value="Black"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+
+        <Style x:Key="CommonFocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle 
+                        SnapsToDevicePixels="true" Margin="3" 
+                        Stroke="#FF6495ED" StrokeDashArray="1 2" 
+                        StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="FocusVisualStyle" 
+                Value="{StaticResource CommonFocusVisual}"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="MaxLength" Value="200"/>
+            <Setter Property="TextElement.Foreground" Value="#FF6495ED"/>
+            <Setter Property="UndoLimit" Value="1"/>
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid>
+                            <Border x:Name="Bd"
+                            SnapsToDevicePixels="true" 
+                            Height="{TemplateBinding Height}" 
+                            Width="{TemplateBinding Width}"
+                            VerticalAlignment="Center"
+			                Background="Transparent" 
+			                CornerRadius="2"
+			                BorderBrush="#FF6495ED" 
+			                BorderThickness="3">
+                                <ScrollViewer x:Name="PART_ContentHost" 
+                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                              VerticalAlignment="Center" 
+                              VerticalContentAlignment="Center" 
+                              Margin="0">
+                                </ScrollViewer>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontFamily" Value="Arial Black"/>
+            <Setter Property="Height" Value="Auto"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Foreground" Value="#FF6495ED"/>
+        </Style>
+
+
+
+
+
+    </UserControl.Resources>
+    
+    
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="800" Height="800">
+
+        <Viewbox VerticalAlignment="Top" 
+                   HorizontalAlignment="Right" Opacity="1.0"
+                   Width="80" Height="80" Margin="0,220,100,0">
+            <local:PulsingRingControl Margin="0" 
+                        StartAnimatingFromStart="False"/>
+        </Viewbox>
+
+        <Viewbox VerticalAlignment="Top" 
+                   HorizontalAlignment="Right" Opacity="0.8"
+                   Width="125" Height="125" Margin="0,460,130,0">
+            <local:PulsingRingControl Margin="0" 
+                        StartAnimatingFromStart="True"/>
+        </Viewbox>
+
+        <Viewbox VerticalAlignment="Top" 
+                   HorizontalAlignment="Right" Opacity="0.2"
+                   Width="160" Height="160" Margin="0,480,260,0">
+            <local:PulsingRingControl Margin="0" 
+                        StartAnimatingFromStart="True"/>
+        </Viewbox>
+
+        <Viewbox VerticalAlignment="Top" 
+                   HorizontalAlignment="Left" Opacity="0.6"
+                   Width="300" Height="300" Margin="70,350,0,0">
+            <local:PulsingRingControl Margin="0" 
+                        StartAnimatingFromStart="False"/>
+        </Viewbox>
+
+
+        <thriple:ContentControl3D MaxWidth="600" MaxHeight="600" 
+                                  Width="600" Height="600" Margin="0,20,0,0"
+                                  HorizontalAlignment="Center" VerticalAlignment="Top"
+                                  RotationDirection="BottomToTop"
+                                  EasingMode="RoundhouseKick" AnimationLength="600">
+
+        <!-- FRONT SIDE -->
+        <thriple:ContentControl3D.Content>
+
+                <Border CornerRadius="10" Background="Black">
+                    <Grid Background="Black" Margin="10"
+                  Width="600" 
+                  Height="600">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <!-- 
+                            This Button's Command property is set to  
+                            the command that rotates the 3D surface. 
+                            -->
+
+                        <Grid Grid.Row="0" Background="White" Margin="2">
+
+                            <Label Foreground="Black" 
+                                   FontSize="28" FontWeight="Bold"
+                                   Content="Add A New Place" 
+                                   HorizontalAlignment="Left" 
+                                   VerticalAlignment="Center"/>
+
+                            <Button ToolTip="Flip To All Places"
+                              Template="{StaticResource flipperButtonTemplate}"
+                              Content="Flip" 
+                              Command="thriple:ContentControl3D.RotateCommand"
+                              HorizontalAlignment="Right" Width="50" Height="50"
+                              Margin="10"/>
+                        </Grid>
+
+
+
+
+                        <Grid Grid.Row="1" Margin="0" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            
+                            <!-- Name-->
+                            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                <Label Content="Name" Width="220"/>
+                                <TextBox Text="{Binding Path=Name, Mode=TwoWay, 
+                                    UpdateSourceTrigger=LostFocus}"  Width="180"/>
+                            </StackPanel>
+
+                            <!-- Description-->
+                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                <Label Content="Description" Width="220"/>
+                                <TextBox Text="{Binding Path=Description, Mode=TwoWay, 
+                                    UpdateSourceTrigger=LostFocus}"  Width="180"/>
+                            </StackPanel>
+
+                            <!-- Latitude-->
+                            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                                <Label Content="Decimal Latitude" Width="220"/>
+                                <TextBox Text="{Binding Path=Latitude, Mode=TwoWay, 
+                                    UpdateSourceTrigger=LostFocus}"  Width="180"/>
+                            </StackPanel>
+
+                            <!-- Longitude-->
+                            <StackPanel Grid.Row="3" Orientation="Horizontal">
+                                <Label Content="Decimal Longitude" Width="220"/>
+                                <TextBox Text="{Binding Path=Longitude, Mode=TwoWay, 
+                                    UpdateSourceTrigger=LostFocus}"  Width="180"/>
+                            </StackPanel>
+
+
+                            <Button x:Name="btnSave" 
+                                    Grid.Row="4" 
+                                    Content="Save" Margin="10" 
+                                    Height="40"
+                                    HorizontalAlignment="Left" FontSize="15"
+                                    FontWeight="Bold"
+                                    Style="{StaticResource GelButton}"
+                                    ToolTip="Save New Place"                    
+                                    Command="{Binding Path=SaveNewPlaceCommand}"/>
+
+
+                        </Grid>
+
+
+
+
+                    </Grid>
+
+                </Border>
+
+
+            </thriple:ContentControl3D.Content>
+
+        <!-- BACK SIDE -->
+        <thriple:ContentControl3D.BackContent>
+
+            <Border CornerRadius="10" Background="Black">
+                <Grid Background="Black" Margin="10"
+                  Width="600" 
+                  Height="600">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                        <!-- 
+                            This Button's Command property is set to  
+                            the command that rotates the 3D surface. 
+                            -->
+                    
+                        <Grid Grid.Row="0" Background="White" Margin="2">
+
+                            <Label Foreground="Black" 
+                                   FontSize="28" FontWeight="Bold"
+                                   Content="Your Saved Places" 
+                                   HorizontalAlignment="Left" 
+                                   VerticalAlignment="Center"/>
+
+                            <Button ToolTip="Flip To Add New Place"
+                              Template="{StaticResource flipperButtonTemplate}"
+                              Content="Flip" 
+                              Command="thriple:ContentControl3D.RotateCommand"
+                              HorizontalAlignment="Right" Width="50" Height="50"
+                              Margin="10"
+                              />
+                        </Grid>
+
+                        <ItemsControl Grid.Row="1" Margin="10"
+                               HorizontalAlignment="Stretch" 
+                               VerticalAlignment="Stretch">
+                                <ItemsControl.ItemsSource>
+                                    <Binding Path="AllPlaces" 
+                                        Source="{x:Static Application.Current}"/>
+                                </ItemsControl.ItemsSource>
+
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <local:PlaceControl />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+
+      
+                    
+
+                    </Grid>
+
+            </Border>
+
+
+        </thriple:ContentControl3D.BackContent>
+    </thriple:ContentControl3D>
+
+    </Grid>
+
+</UserControl>

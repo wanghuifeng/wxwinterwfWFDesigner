@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="e64aa6ed-b73c-4fa2-a078-4dc50224e3b6" Publisher="CN=Shai" Version="1.0.0.0" />
+  <Properties>
+    <DisplayName>PuzzleMetro</DisplayName>
+    <PublisherDisplayName>Shai</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+    <Description>PuzzleMetro</Description>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2</OSMinVersion>
+    <OSMaxVersionTested>6.2</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="PuzzleMetro.App">
+      <VisualElements DisplayName="PuzzleMetro" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="PuzzleMetro" ForegroundText="light" BackgroundColor="#222222" ToastCapable="true">
+        <DefaultTile ShowName="allLogos" />
+        <SplashScreen Image="Assets\SplashScreen.png" />
+      </VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>

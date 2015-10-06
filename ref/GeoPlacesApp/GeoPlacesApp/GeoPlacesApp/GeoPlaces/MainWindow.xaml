@@ -1,0 +1,182 @@
+﻿<Window x:Class="GeoPlaces.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:GeoPlaces;assembly="
+	x:Name="win"
+	Title="GeoPlaces"
+    Background="{x:Null}" 
+    Topmost="False" 
+    WindowStartupLocation="CenterScreen" 
+    WindowState="Maximized"
+    MinHeight="700" 
+    MinWidth="900"
+    WindowStyle="ThreeDBorderWindow"
+    ShowInTaskbar="True"
+    ResizeMode="CanResizeWithGrip"
+    AllowsTransparency="False"
+    SizeChanged="win_SizeChanged">
+
+
+    <Grid Background="#FF6495ED">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Buttons grid -->
+        <Grid Grid.Row="0" HorizontalAlignment="Stretch" Height="50" Margin="0,0,0,0"
+                  Background="Black" >
+
+
+            <StackPanel Orientation="Vertical" Margin="85,0,0,0" HorizontalAlignment="Left" >
+
+                <Label Content="GeoPlaces" 
+                       FontFamily="Arial Black" 
+                           Margin="5,10,0,0"
+                       Foreground="#FF6495ED" FontWeight="Bold"
+                       FontSize="40" VerticalAlignment="Bottom"/>
+
+
+            </StackPanel>
+        </Grid>
+
+
+        <!-- Actual Content Grid-->
+        <Grid x:Name="gd" Grid.Row="1" Width="Auto"  Height="Auto" Margin="0,0,0,10">
+
+
+            <Canvas x:Name="canv">
+
+
+                <Canvas.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                        <SkewTransform AngleX="0" AngleY="0"/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform x:Name="trans" X="0" Y="0"/>
+                    </TransformGroup>
+                </Canvas.RenderTransform>
+
+
+
+                <Rectangle Fill="Black" x:Name="rect" Height="60" Width="{Binding ElementName=canv,Path=ActualWidth}" Canvas.Left="0" Canvas.Top="150"/>
+
+                <Image Source="Images/circ.png" Stretch="None" 
+                           HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,30,0,0" />
+
+                <!-- PART 1 : Login -->
+                <Grid x:Name="part1" Background="Transparent" Width="{Binding ElementName=gd,Path=ActualWidth}"
+                   Height="{Binding ElementName=gd,Path=ActualHeight}" HorizontalAlignment="Center"
+                   VerticalAlignment="Center">
+
+                    <Canvas HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent">
+                        <local:LoginControl Canvas.Left="200" Canvas.Top="450"/>
+                    </Canvas>
+
+
+                    <Viewbox VerticalAlignment="Top" 
+                   HorizontalAlignment="Left"
+                   Width="150" Height="150" Margin="620,230,0,0">
+                        <local:PulsingRingControl Margin="0" 
+                        StartAnimatingFromStart="False"/>
+                    </Viewbox>
+
+                    <Viewbox VerticalAlignment="Top" 
+                     HorizontalAlignment="Left"
+                     Width="75" Height="75" Margin="660,30,0,0">
+                        <local:PulsingRingControl Margin="0" 
+                       StartAnimatingFromStart="True"/>
+                    </Viewbox>
+
+                    <Viewbox VerticalAlignment="Top" 
+                     HorizontalAlignment="Left"
+                     Width="30" Height="30" Margin="580,20,0,0">
+                        <local:PulsingRingControl Margin="0" 
+                       StartAnimatingFromStart="False"/>
+                    </Viewbox>
+
+                    <Viewbox VerticalAlignment="Top" 
+                     HorizontalAlignment="Left"
+                     Width="100" Height="100" Margin="700,70,0,0">
+                        <local:PulsingRingControl Margin="0" 
+                       StartAnimatingFromStart="False"/>
+                    </Viewbox>
+
+
+                </Grid>
+
+
+                <!-- PART 2 : The world viewer -->
+                <Grid x:Name="part2" Background="Transparent" Width="{Binding ElementName=gd,Path=ActualWidth}"
+                   Height="{Binding ElementName=gd,Path=ActualHeight}" HorizontalAlignment="Center"
+                   VerticalAlignment="Center">
+
+
+
+      
+
+
+                    
+
+                    <local:AddViewPlacesControl Width="800" Height="800" Margin="0"
+                            VerticalAlignment="Top" HorizontalAlignment="Center"/>
+
+
+                </Grid>
+
+
+                <!-- PART 3 : The world viewer -->
+                <Grid x:Name="part3" Background="Transparent" Width="{Binding ElementName=gd,Path=ActualWidth}"
+                   Height="{Binding ElementName=gd,Path=ActualHeight}" HorizontalAlignment="Center"
+                   VerticalAlignment="Center">
+
+
+
+
+                    <local:VEMapControl Width="Auto" Height="Auto"
+                        VerticalAlignment="Top" HorizontalAlignment="Center"/>
+
+                    <Image x:Name="imgRight" Source="Images/circRight.png" Stretch="None" 
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Top" Margin="0,30,0,0" />
+
+                </Grid>
+
+
+
+
+
+
+
+            </Canvas>
+
+
+            <Button Content="µ" HorizontalAlignment="Left" VerticalAlignment="Center" 
+                    ToolTip="Go Back A Step"    FontFamily="Wingdings 3"                
+                    Style="{StaticResource CircularGelButton}"
+                    Click="SlideButtonLeft_Clicked" IsEnabled="{Binding Path=IsAuthenticatedUser}"/>
+            <Button Content="¶" HorizontalAlignment="Right" VerticalAlignment="Center" 
+                    ToolTip="Go Forward A Step"   FontFamily="Wingdings 3"                      
+                    Style="{StaticResource CircularGelButton}"
+                    Click="SlideButtonRight_Clicked" IsEnabled="{Binding Path=IsAuthenticatedUser}"/>
+
+
+        </Grid>
+
+        <!-- Logo -->
+        <Image Source="Images/globe.png" Height="80" Width="80" 
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Left" Margin="10,10,0,0" Grid.RowSpan="2"/>
+
+
+
+
+
+    </Grid>
+
+
+</Window>
+
+
+

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="2d891e28-4b67-4059-b1f7-ef73604fea35" Publisher="CN=Greg" Version="1.0.0.0" />
+  <Properties>
+    <DisplayName>MetroIP</DisplayName>
+    <PublisherDisplayName>Greg</PublisherDisplayName>
+    <Logo>Images\StoreLogo.png</Logo>
+    <Description>MetroIP</Description>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2</OSMinVersion>
+    <OSMaxVersionTested>6.2</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="en-us" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="metroiprocess.exe" EntryPoint="MetroImage.App">
+      <VisualElements DisplayName="Metro" Logo="Images\Logo.png" SmallLogo="Images\SmallLogo.png" Description="Metro" ForegroundText="light" BackgroundColor="#222222" InitialRotationPreference="portrait">
+        <SplashScreen Image="Images\SplashScreen.png" />
+      </VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="picturesLibrary" />
+    <Capability Name="internetClient" />
+    <DeviceCapability Name="webcam" />
+  </Capabilities>
+</Package>

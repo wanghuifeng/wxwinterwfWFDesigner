@@ -1,0 +1,8 @@
+﻿<SequentialWorkflowActivity  x:Name="顺序工作流" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow">
+	<SequentialWorkflowActivity.DynamicUpdateCondition>
+		<RuleConditionReference ConditionName="启用" />
+	</SequentialWorkflowActivity.DynamicUpdateCondition>
+	<WorkflowChanges.Condition>
+		<RuleConditionReference ConditionName="启用" />
+	</WorkflowChanges.Condition>
+</SequentialWorkflowActivity>

@@ -1,0 +1,192 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B6F2D79A-DD11-405C-BEE5-3F5F07566973}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>wxwinter.WFDesigner.DesignerForm</RootNamespace>
+    <AssemblyName>wxwinter.WFDesigner.DesignerForm</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Workflow.Activities, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Workflow.ComponentModel, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Workflow.Runtime, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.WorkflowServices, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SeeBindingProperty.resx">
+      <DependentUpon>SeeBindingProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetCallExternalMethod.resx">
+      <DependentUpon>SetCallExternalMethod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetHandleExternalEvent.resx">
+      <DependentUpon>SetHandleExternalEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WFDesignerForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>WFDesignerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="WFTemplate\顺序工作流.rules">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WFTemplate\状态机工作流.layout">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WFTemplate\状态机工作流.rules">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SeeBindingProperty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeeBindingProperty.Designer.cs">
+      <DependentUpon>SeeBindingProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SetCallExternalMethod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetCallExternalMethod.Designer.cs">
+      <DependentUpon>SetCallExternalMethod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SetHandleExternalEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetHandleExternalEvent.Designer.cs">
+      <DependentUpon>SetHandleExternalEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WFDesignerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WFDesignerForm.Designer.cs">
+      <DependentUpon>WFDesignerForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ActivityTooIteml.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="WFTemplate\顺序工作流.xoml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WFTemplate\状态机工作流.xoml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\DataSources\BPM.Base.WFLib.PWS.DepartmentTree.datasource" />
+    <None Include="Properties\DataSources\BPM.Base.WFLib.PWS.PowerTree.datasource" />
+    <None Include="Properties\DataSources\BPM.Base.WFLib.PWS.PW_Department.datasource" />
+    <None Include="Properties\DataSources\BPM.Base.WFLib.PWS.PW_DepartmentDutyUserRelation_V.datasource" />
+    <None Include="Properties\DataSources\BPM.Base.WFLib.PWS.PW_DepartmentDutyUserRelation_VCN.datasource" />
+    <None Include="Properties\DataSources\BPM.Base.WFLib.PWS.PW_DepartmentExpansionInfo.datasource" />
+    <None Include="Properties\DataSources\BPM.Base.WFLib.PWS.PW_Duty.datasource" />
+    <None Include="Properties\DataSources\BPM.Base.WFLib.PWS.PW_DutyExpansionInfo.datasource" />
+    <None Include="Properties\DataSources\BPM.Base.WFLib.PWS.PW_DutyInDepartment_V.datasource" />
+    <None Include="Properties\DataSources\BPM.Base.WFLib.PWS.PW_DutyInDepartment_VCN.datasource" />
+    <None Include="Properties\DataSources\BPM.Base.WFLib.PWS.PW_User.datasource" />
+    <None Include="Properties\DataSources\BPM.Base.WFLib.PWS.PW_UserExpansionInfo.datasource" />
+    <None Include="Properties\DataSources\BPM.Base.WFLib.PWS.SYS_Enumeration.datasource" />
+    <None Include="Properties\DataSources\BPM.Base.WFLib.PWS.SYS_RegularExpression.datasource" />
+    <None Include="Properties\DataSources\TPRIBPM.Foundation.WFDB.SYS_Log.datasource" />
+    <None Include="Properties\DataSources\TPRIBPM.Foundation.WFDB.WF_Business.datasource" />
+    <None Include="Properties\DataSources\TPRIBPM.Foundation.WFDB.WF_InstanceState_V.datasource" />
+    <None Include="Properties\DataSources\TPRIBPM.Foundation.WFDB.WF_Instance_V.datasource" />
+    <None Include="Properties\DataSources\TPRIBPM.Foundation.WFDB.WF_Message.datasource" />
+    <None Include="Properties\DataSources\TPRIBPM.Foundation.WFDB.WF_Message_V.datasource" />
+    <None Include="Properties\DataSources\TPRIBPM.Foundation.WFDB.WF_StartWorkflowPower_V.datasource" />
+    <None Include="Properties\DataSources\TPRIBPM.Foundation.WFDB.WF_Template.datasource" />
+    <None Include="Properties\DataSources\TPRIBPM.Foundation.WFDB.WF_Template_V.datasource" />
+    <None Include="Properties\DataSources\TPRIBPM.Foundation.WFService.BusinessTree.datasource" />
+    <None Include="Properties\DataSources\TPRIBPM.Foundation.WFService.InstanceInfo.datasource" />
+    <None Include="Properties\DataSources\TPRIBPM.Foundation.WFService.InstanceTree.datasource" />
+    <None Include="Properties\DataSources\TPRIBPM.Foundation.WFService.WF_Structure.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BPM.Foundation.Design\wxwinter.WFDesigner.Design.csproj">
+      <Project>{BDE39356-6F85-4303-B822-D6A5782E69BB}</Project>
+      <Name>wxwinter.WFDesigner.Design</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\wxwinter.WFDesigner.DesignerTools\wxwinter.WFDesigner.DesignerTools.csproj">
+      <Project>{E7BB4AC9-D6E5-4826-B003-B81F0D4BB8C5}</Project>
+      <Name>wxwinter.WFDesigner.DesignerTools</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

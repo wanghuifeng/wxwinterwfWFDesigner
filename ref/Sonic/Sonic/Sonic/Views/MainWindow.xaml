@@ -1,0 +1,268 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"      
+    xmlns:local="clr-namespace:Sonic"
+	x:Class="Sonic.MainWindow"
+	x:Name="win"
+	Title="Sonic : Music Library"
+    Background="{x:Null}" 
+    Topmost="False" 
+    WindowStartupLocation="CenterScreen" 
+    WindowState="Normal"
+    MinHeight="620" 
+    MinWidth="950"
+    WindowStyle="None" 
+    Template="{StaticResource WindowTemplateKey}"
+    ResizeMode="CanResizeWithGrip" AllowsTransparency="True">
+
+
+    <Window.Resources>
+
+        <ObjectDataProvider x:Key="queryTypesData"
+                            MethodName="GetValues" 
+                            ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="local:QueryTypes" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+
+        <local:EnumToFriendlyNameConverter x:Key="enumItemsConverter"/>
+    </Window.Resources>
+
+
+
+    <Border CornerRadius="10,10,10,10" 
+            BorderBrush="Black" BorderThickness="3">
+        <Border.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.50,0.0">
+                <GradientStop Color="#FFFFA500" Offset="0"/>
+                <GradientStop Color="#FFFF4312" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.Background>
+
+
+
+
+
+
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+
+                <Grid Grid.Row="0" HorizontalAlignment="Stretch" Height="50" Margin="0,0,0,0"
+                  MouseLeftButtonDown="Rectangle_MouseLeftButtonDown"
+                  Background="Black" >
+
+                    <Image Source="../Images/SonicLogo.png" Width="136" Height="40" 
+                        Margin="10,0,0,-16" HorizontalAlignment="Left"/>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Center" >
+                        <Button x:Name="btnSize" Margin="2,0,2,0"  FontFamily="Webdings" Content="1" Template="{StaticResource mainWinButtons}" ToolTip="Manually Size" Click="btnSize_Click"/>
+                        <Button x:Name="btnMin" Margin="2,0,2,0"  FontFamily="Wingdings 3" Content="q" Template="{StaticResource mainWinButtons}" ToolTip="Minimize" Click="btnMin_Click"/>
+                        <Button x:Name="btnMax" Margin="2,0,2,0"  FontFamily="Wingdings 3" Content="p" Template="{StaticResource mainWinButtons}" ToolTip="Maximize" Click="btnMax_Click"/>
+                        <Button x:Name="btnClose" Margin="2,0,2,0" FontFamily="Wingdings" Content="û" Template="{StaticResource mainWinButtons}" ToolTip="Close" Click="btnClose_Click" FontSize="22" FontWeight="Bold"/>
+                    </StackPanel>
+                </Grid>
+
+
+                <Grid HorizontalAlignment="Stretch" 
+              VerticalAlignment="Stretch" 
+              Margin="0" Grid.Row="1"
+              Visibility="{Binding IsBusy, 
+                Converter={StaticResource BoolToVisibilityConv}, 
+                ConverterParameter=false}">
+
+                    <DockPanel LastChildFill="True">
+
+                        <Label DockPanel.Dock="Top" Height="40"
+                           FontSize="25" FontWeight="Bold" FontFamily="Arial Black" 
+                               Margin="10,0,0,0"
+                           Foreground="Black" VerticalContentAlignment="Center"
+                        HorizontalAlignment="Stretch" Background="Transparent" 
+                           Content="Please Wait Reading Your MP3s...."/>
+
+
+                        <Viewbox Width="400" Height="400" 
+                             HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                            <local:CircularProgressBar 
+                    Visibility="{Binding IsBusy, 
+                    Converter={StaticResource BoolToVisibilityConv}, 
+                    ConverterParameter=false}"/>
+                        </Viewbox>
+                    </DockPanel>
+
+
+
+                </Grid>
+
+                <!-- Actual Content Grid-->
+                <Grid Visibility="{Binding IsNotBusy, 
+                    Converter={StaticResource BoolToVisibilityConv}, 
+                    ConverterParameter=false}"
+                    Grid.Row="1" Width="Auto"  Height="Auto" Margin="0,0,0,10">
+
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="130"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+
+                    <!-- Top Section-->
+
+                    <Grid Grid.Row="0" Height="130" HorizontalAlignment="Stretch" 
+                      VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="140"/>
+                        </Grid.ColumnDefinitions>
+
+
+                        <Canvas  Grid.Column="0" Height="130" Background="Transparent"
+                             HorizontalAlignment="Left">
+
+
+                            <Image Source="../Images/header.png" Width="825" Height="130" Canvas.Left="-5" Canvas.Top="0"/>
+
+
+
+
+                        <ComboBox x:Name="lblArtistStartLetter" 
+                            Canvas.Left="30" Canvas.Top="42"
+                            HorizontalAlignment="Center" 
+                            Height="50" Width="80" Margin="5" 
+                            ItemsSource="{Binding Path=ArtistLetters}"
+                            SelectedItem="{Binding Path=MediaViewVM.CurrentArtistLetter,
+                                Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                            FontSize="35" FontWeight="Bold"
+                            Tag="BigCombo"
+                            IsEnabled="{Binding Path=IsNotBusy}"/>
+
+
+
+                            <ComboBox x:Name="cmbGenres" 
+                            Canvas.Left="130" Canvas.Top="27"
+                            HorizontalAlignment="Center"
+                            Height="25" Width="160" 
+                            ItemsSource="{Binding Path=Genres}"
+                            SelectedItem="{Binding Path=MediaViewVM.CurrentGenre,
+                                Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                            FontSize="11" FontWeight="Normal"
+                            Tag="RegularCombo"
+                            IsEnabled="{Binding Path=IsNotBusy}"/>
+
+
+                            <ComboBox x:Name="cmbQueryType" 
+                            Canvas.Left="250" Canvas.Top="60"
+                            HorizontalAlignment="Center"
+                            Height="25" Width="110" 
+                            ItemsSource="{Binding Source={StaticResource queryTypesData}}"
+                            SelectedItem="{Binding Path=MediaViewVM.CurrentQueryType, 
+                                Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                            FontSize="11" FontWeight="Normal"
+                            Tag="RegularCombo"
+                            IsEnabled="{Binding Path=IsNotBusy}">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Label x:Name="lbl"  
+                                        Content="{Binding   Path=.,Mode=OneWay, 
+                                        Converter={StaticResource enumItemsConverter}}"
+                                        FontSize="11"
+                                        Height="25"
+                                        Margin="2,0,0,0" 
+                                        HorizontalAlignment="Center"
+                                        HorizontalContentAlignment="Center"
+                                        VerticalContentAlignment="Center"
+                                        VerticalAlignment="Center"/>
+                                        <DataTemplate.Triggers>
+                                            <DataTrigger 
+                                            Binding="{Binding Path=IsHighlighted, 
+                                                RelativeSource={RelativeSource AncestorType={x:Type ComboBoxItem}}}"
+                                            Value="True">
+                                                <Setter TargetName="lbl" Property="Foreground" Value="Red"/>
+                                                <Setter TargetName="lbl" Property="FontWeight" Value="Bold"/>
+                                                <Setter TargetName="lbl" Property="BitmapEffect" >
+                                                    <Setter.Value>
+                                                        <OuterGlowBitmapEffect GlowColor="White" GlowSize="5" Opacity="0.6"/>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </DataTrigger>
+                                        </DataTemplate.Triggers>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+
+                            <TextBox x:Name="txtKeyWord" 
+                            Canvas.Left="402" Canvas.Top="31"
+                            HorizontalAlignment="Center"
+                            Height="25" Width="260" FontSize="10"
+                            FontWeight="Normal" 
+                            Text="{Binding Path=MediaViewVM.CurrentKeyWord, 
+                                Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                            IsEnabled="{Binding Path=IsNotBusy}">
+                            </TextBox>
+
+                        <StackPanel Orientation="Horizontal" Canvas.Left="600" 
+                                    Canvas.Top="100" ToolTip="Drag New Media Here"
+                                    AllowDrop="True"
+                                    DragOver="StackPanel_DragOver"
+                                    Drop="StackPanel_Drop">
+                            
+                            <Label Content="Drag New Media To This Area" VerticalAlignment="Center"
+                                   Foreground="Black" FontWeight="Bold" FontFamily="Tahoma" FontSize="11"/>
+                            <Image Source="../Images/target.png" Width="30" VerticalAlignment="Center"
+                                   Height="30" />
+
+                        </StackPanel>
+
+                            
+
+                        </Canvas>
+
+
+
+                        <!-- Search Button -->
+                        <Viewbox Grid.Column="1" Width="100" Height="100" HorizontalAlignment="Right" Margin="0,10,15,0">
+                            <local:FancyButton ButtonToolTip="Search For Music Using This Query" ButtonCommand="{Binding Path=MediaViewVM.RunQueryCommand}"/>
+                        </Viewbox>
+
+                    </Grid>
+
+
+
+                    <!--Bottom Section-->
+                    <Grid Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+
+                        <Border Grid.Row="1" Background="Black" 
+                            BorderBrush="Black" CornerRadius="5"
+                            HorizontalAlignment="Stretch" 
+                            VerticalAlignment="Stretch" 
+                            Margin="10">
+                            <local:MediaView Margin="5"
+                            HorizontalAlignment="Stretch" 
+                            VerticalAlignment="Stretch"/>
+                        </Border>
+
+                    </Grid>
+
+
+                </Grid>
+            </Grid>
+
+
+
+    </Border>
+</Window>

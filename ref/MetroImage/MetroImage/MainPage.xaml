@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="MetroImage.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="768" d:DesignWidth="1366">
+
+   <Grid x:Name="LayoutRoot" Background="#FF0C0C0C" Height="747" VerticalAlignment="Top">
+      <StackPanel HorizontalAlignment="Center" Margin="260,26,144,8" Width="962">
+            <Image x:Name="Image1" Stretch="Fill" Source="/Images/scenery.jpg" Margin="-3.242,0,3.011,0" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Height="719.281" Loaded="Image1_Loaded">
+                <Image.RenderTransform>
+                    <CompositeTransform SkewY="0.37" TranslateY="3.494" SkewX="-0.004" TranslateX="0.023"/>
+                </Image.RenderTransform>
+            </Image>
+            <ProgressBar x:Name="progress" HorizontalAlignment="Center" Height="Auto" SmallChange="0.1" Margin="102,0,0,0" VerticalAlignment="Center"/>
+            <TextBlock x:Name="DisplayText" FontSize="48" Foreground="White" />
+        </StackPanel>
+        <StackPanel x:Name="ButtonBrightness" Height="734" VerticalAlignment="Top" Width="225" Margin="20,26,0,0" HorizontalAlignment="Left">
+            <Button x:Name="Tpicture" Content="Take Photo" HorizontalAlignment="Center" Margin="20,0,19,0" Click="Tpicture_Click" VerticalAlignment="Center" FontSize="20" BorderThickness="2" Width="186" Height="96" Background="#FF64F064"/>
+            <Button x:Name="Lfile" Content="Load" HorizontalAlignment="Center" Margin="19,0" Click="Lfile_Click" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="20" CharacterSpacing="-1" BorderThickness="2" Width="187" Background="#FF64F064" Height="91">
+                <Button.RenderTransform>
+                    <CompositeTransform/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="ButtonCherish" Content="Negative" HorizontalAlignment="Center" Margin="20,0,19,0" VerticalAlignment="Center" Click="Cherish_Click" FontSize="20" BorderThickness="2" Width="186" Height="63"/>
+            <Button x:Name="ButtonColorfilter" Content="Colorfilter" HorizontalAlignment="Center" Margin="20,0,19,0" Click="Colorfilter_Click" FontSize="20" VerticalAlignment="Center" Width="186" Height="59"/>
+            <Button x:Name="Buttonemboss" Content="Emboss" HorizontalAlignment="Center" Margin="20,0,19,0" Click="Emboss_Click" FontSize="20" VerticalAlignment="Center" Width="186" Height="73"/>
+            <Button x:Name="ButtonSunLight" Content="SunLight" HorizontalAlignment="Center" Margin="20,0,19,0" VerticalAlignment="Center" FontSize="20" Click="SunLight_Click" BorderThickness="2" Width="186" Height="70"/>
+            <Button x:Name="ButtonBlackWhite" Content="BlackWhite" HorizontalAlignment="Center" Margin="20,0,19,0" VerticalAlignment="Center" FontSize="20" Click="BlackWhite_Click" BorderThickness="2" Width="186" Height="72"/>
+            <Button x:Name="ButtonBrightness1" Content="Brightness" HorizontalAlignment="Center" Margin="20,0,19,0" FontSize="20" Click="Brightness_Click" VerticalAlignment="Center" Width="186" Height="74"/>
+            <Button x:Name="ButtonOilpaint" Content="Oilpaint" HorizontalAlignment="Center" Margin="20,0,19,0" FontSize="20" Click="OilPaint_Click" VerticalAlignment="Center" Width="186" Height="63"/>
+            <Button x:Name="ButtonTint" Content="Tint" HorizontalAlignment="Center" Margin="20,0,19,0" Click="Tint_Click" FontSize="20" VerticalAlignment="Center" Width="186" Height="56">
+                <Button.Background>
+                    <ImageBrush Stretch="Fill"/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="SQLMP3s">
+  <DataContextMoniker Name="/SQLMP3sDataContext" />
+  <nestedChildShapes>
+    <classShape Id="c29bfd51-c4e3-4572-a0fe-eebf5417e64d" absoluteBounds="5, 1.875, 2, 1.9631982421875">
+      <DataClassMoniker Name="/SQLMP3sDataContext/MP3" />
+      <nestedChildShapes>
+        <elementListCompartment Id="44ce9970-7126-47be-9a23-89d382f708c0" absoluteBounds="5.015, 2.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

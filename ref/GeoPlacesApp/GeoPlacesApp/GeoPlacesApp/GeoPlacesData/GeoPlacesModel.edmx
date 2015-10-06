@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GeoPlacesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+        <EntityContainer Name="dbo">
+          <EntitySet Name="Places" EntityType="GeoPlacesModel.Store.Places" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="GeoPlacesModel.Store.Users" store:Type="Tables" />
+          <AssociationSet Name="FK_Places_Users" Association="GeoPlacesModel.Store.FK_Places_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Places" EntitySet="Places" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Places">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Longitude" Type="float" Nullable="false" />
+          <Property Name="Latitude" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Places_Users">
+          <End Role="Users" Type="GeoPlacesModel.Store.Users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Places" Type="GeoPlacesModel.Store.Places" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Places">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GeoPlacesModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+        <EntityContainer Name="GeoPlacesEntities">
+          <EntitySet Name="Places" EntityType="GeoPlacesModel.Places" />
+          <EntitySet Name="Users" EntityType="GeoPlacesModel.Users" />
+          <AssociationSet Name="FK_Places_Users" Association="GeoPlacesModel.FK_Places_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Places" EntitySet="Places" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Places">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Longitude" Type="Double" Nullable="false" />
+          <Property Name="Latitude" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="GeoPlacesModel.FK_Places_Users" FromRole="Places" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Places" Relationship="GeoPlacesModel.FK_Places_Users" FromRole="Users" ToRole="Places" />
+        </EntityType>
+        <Association Name="FK_Places_Users">
+          <End Role="Users" Type="GeoPlacesModel.Users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Places" Type="GeoPlacesModel.Places" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+        <EntityContainerMapping StorageEntityContainer="dbo" CdmEntityContainer="GeoPlacesEntities">
+          <EntitySetMapping Name="Places">
+            <EntityTypeMapping TypeName="IsTypeOf(GeoPlacesModel.Places)">
+              <MappingFragment StoreEntitySet="Places">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="IsTypeOf(GeoPlacesModel.Users)">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FK_Places_Users" TypeName="GeoPlacesModel.FK_Places_Users" StoreEntitySet="Places">
+            <EndProperty Name="Users">
+              <ScalarProperty Name="ID" ColumnName="UserID" />
+            </EndProperty>
+            <EndProperty Name="Places">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <edmx:Diagrams >
+<Diagram Name="GeoPlacesModel">
+<EntityTypeShape EntityType="GeoPlacesModel.Places" PointX="3" PointY="0.875" Width="1.5" Height="2.1725878906250005" IsExpanded="true" />
+<EntityTypeShape EntityType="GeoPlacesModel.Users" PointX="0.75" PointY="1.125" Width="1.5" Height="1.7879850260416668" IsExpanded="true" />
+<AssociationConnector Association="GeoPlacesModel.FK_Places_Users" ManuallyRouted="false">
+<ConnectorPoint PointX="2.25" PointY="2.0189925130208333" />
+<ConnectorPoint PointX="3" PointY="2.0189925130208333" /></AssociationConnector></Diagram></edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

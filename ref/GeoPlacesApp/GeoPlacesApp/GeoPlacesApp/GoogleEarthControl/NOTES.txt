@@ -1,0 +1,7 @@
+﻿http://earth.google.com/comapi/interfaceIApplicationGE.html#0c3cf6e34051aab573a7fb82eb3f4a41
+
+To convert from degress minutes amd seconds
+
+http://stackoverflow.com/questions/103006/whats-the-easiest-way-to-convert-latitude-and-longitude-to-double-values
+http://support.microsoft.com/kb/213449
+

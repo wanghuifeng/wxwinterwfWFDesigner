@@ -1,0 +1,142 @@
+﻿<UserControl x:Class="GeoPlaces.PlaceControlDetailed"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Height="Auto" Width="Auto" Background="Transparent"
+    HorizontalAlignment="Stretch">
+
+
+    <UserControl.Resources>
+        
+        <Style x:Key="{x:Type Label}" TargetType="{x:Type Label}">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Height" Value="Auto"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="spItems" TargetType="{x:Type StackPanel}">
+            <Setter Property="Orientation" Value="Horizontal"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Height" Value="Auto"/>
+        </Style>
+
+    </UserControl.Resources>
+    
+    
+    <Button x:Name="PlaceButton" HorizontalAlignment="Stretch" Margin="2" Click="PlaceButton_Click">
+        <Button.Template>
+
+
+            <ControlTemplate TargetType="{x:Type Button}">
+                <ControlTemplate.Resources>
+                    <Storyboard x:Key="OnMouseEnter">
+                        <ColorAnimationUsingKeyFrames BeginTime="00:00:00" 
+                              Storyboard.TargetName="border" 
+                              Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                            <SplineColorKeyFrame KeyTime="00:00:00" Value="Black"/>
+                            <SplineColorKeyFrame KeyTime="00:00:01" Value="#FF656565"/>
+                        </ColorAnimationUsingKeyFrames>
+                    </Storyboard>
+                    <Storyboard x:Key="OnMouseLeave">
+                        <ColorAnimationUsingKeyFrames BeginTime="00:00:00" 
+                              Storyboard.TargetName="border" 
+                              Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                            <SplineColorKeyFrame KeyTime="00:00:00" Value="#FF656565"/>
+                            <SplineColorKeyFrame KeyTime="00:00:01" Value="Black"/>
+                        </ColorAnimationUsingKeyFrames>
+                    </Storyboard>
+                </ControlTemplate.Resources>
+                <Border x:Name="border" CornerRadius="5" Background="Black">
+
+                    <StackPanel Orientation="Vertical" Background="Transparent" >
+                        <StackPanel Style="{StaticResource spItems}">
+                            <Label Content="Name: " />
+                            <Label Content="{Binding Path=Name, Mode=OneWay}"/>
+                        </StackPanel>
+                        <StackPanel Style="{StaticResource spItems}">
+                            <Label Content="Description: " />
+                            <Label Content="{Binding Path=Description, Mode=OneWay}"/>
+                        </StackPanel>
+                        
+                    </StackPanel>
+                </Border>
+                <ControlTemplate.Triggers>
+                    <EventTrigger RoutedEvent="Mouse.MouseEnter" SourceName="border">
+                        <BeginStoryboard Storyboard="{StaticResource OnMouseEnter}"/>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="Mouse.MouseLeave" SourceName="border">
+                        <BeginStoryboard Storyboard="{StaticResource OnMouseLeave}"/>
+                    </EventTrigger>
+                    <Trigger Property="IsKeyboardFocused" Value="true"/>
+                    <Trigger Property="ToggleButton.IsChecked" Value="true"/>
+                    <Trigger Property="IsEnabled" Value="false">
+                        <Setter Property="Foreground" Value="#ADADAD"/>
+                    </Trigger>
+                </ControlTemplate.Triggers>
+            </ControlTemplate>
+
+
+
+
+
+            <!--<ControlTemplate>
+
+                <ControlTemplate.Resources>
+                    <Storyboard x:Key="OnMouseEnter">
+                        <ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="bord" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                            <SplineColorKeyFrame KeyTime="00:00:00" Value="Transparent"/>
+                            <SplineColorKeyFrame KeyTime="00:00:01" Value="#ff656565"/>
+                        </ColorAnimationUsingKeyFrames>
+                    </Storyboard>
+                    <Storyboard x:Key="OnMouseLeave">
+                        <ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="bord" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                            <SplineColorKeyFrame KeyTime="00:00:00" Value="#ff656565"/>
+                            <SplineColorKeyFrame KeyTime="00:00:01" Value="Transparent"/>
+                        </ColorAnimationUsingKeyFrames>
+                    </Storyboard>
+                </ControlTemplate.Resources>
+
+
+
+                <Border x:Name="bord" CornerRadius="5" BorderBrush="Black">
+                    
+                    <StackPanel Orientation="Vertical" Background="Transparent" >
+                        <StackPanel Orientation="Horizontal" Background="Transparent" >
+                            <Label Content="Name" />
+                            <Label Content="{Binding Path=Name, Mode=OneWay}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Background="Transparent" >
+                            <Label Content="Description" />
+                            <Label Content="{Binding Path=Description, Mode=OneWay}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Background="Transparent" >
+                            <Label Content="Latitude" />
+                            <Label Content="{Binding Path=Latitude, Mode=OneWay}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Background="Transparent" >
+                            <Label Content="Longitude" />
+                            <Label Content="{Binding Path=Longitude, Mode=OneWay}"/>
+                        </StackPanel>
+
+                    </StackPanel>
+                </Border>
+
+
+                <ControlTemplate.Triggers>
+                    <EventTrigger RoutedEvent="Mouse.MouseLeave" SourceName="bord">
+                        <BeginStoryboard Storyboard="{StaticResource OnMouseLeave}"/>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="Mouse.MouseEnter" SourceName="bord">
+                        <BeginStoryboard Storyboard="{StaticResource OnMouseEnter}"/>
+                    </EventTrigger>
+                </ControlTemplate.Triggers>
+            </ControlTemplate>-->
+        </Button.Template>
+    </Button>
+    
+    
+
+
+
+</UserControl>

@@ -1,0 +1,14 @@
+﻿+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+If you want to install this is as a Windows service you may need to use the following command lines
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+INSTALL (change the path to your path)
+
+
+installutil.exe "C:\Users\sacha\Desktop\In Progress\Restful\GeoPlaces\GeoPlacesApp\GeoPlacesServiceHost\bin\Release\GeoPlacesServiceHost.exe"
+
+
+AND TO UNINSTALL (change the path to your path)
+
+installutil.exe /u "C:\Users\sacha\Desktop\In Progress\Restful\GeoPlaces\GeoPlacesApp\GeoPlacesServiceHost\bin\Release\GeoPlacesServiceHost.exe"

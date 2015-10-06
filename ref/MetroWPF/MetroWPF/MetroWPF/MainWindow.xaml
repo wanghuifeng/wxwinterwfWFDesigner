@@ -1,0 +1,21 @@
+﻿<controls:MetroWindow  x:Class="MetroWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        GlowBrush="{DynamicResource AccentColorBrush}"
+        Title="MainWindow" Height="350" Width="525">
+    <controls:MetroWindow.RightWindowCommands>
+        <controls:WindowCommands>
+            <Button Content="settings" />
+            <Button Content="设置" />
+        </controls:WindowCommands>
+    </controls:MetroWindow.RightWindowCommands>
+
+    <Grid>
+        <StackPanel>
+            <Label Margin="20">www.wxzzz.com</Label>
+            <TextBox Margin="40,10,40,10"></TextBox>
+            <Button>Metro Style Button</Button>
+        </StackPanel>
+    </Grid>
+</controls:MetroWindow>

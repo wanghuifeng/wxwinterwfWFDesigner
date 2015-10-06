@@ -1,0 +1,20 @@
+ O volume na unidade C nÆo tem nome.
+ O n£mero de s‚rie do volume ‚ 18C0-1D2E
+
+ Pasta de C:\codeproject\XNASnooker\5.0\XNASnooker\Content\Sounds
+
+12/03/2009  23:35            78.320 Bank01.wav
+12/03/2009  23:35           100.720 Bank02.wav
+01/09/2010  10:08            21.220 click01.wav
+01/09/2010  10:04            64.612 click02.wav
+12/03/2009  23:12           139.400 fall.wav
+12/03/2009  23:35            17.368 Hit01.wav
+12/03/2009  23:35           129.452 Hit02.wav
+12/03/2009  23:35           143.360 Hit03.wav
+12/03/2009  23:35           140.940 Hit04.wav
+12/03/2009  23:35            57.536 Hit05.wav
+12/03/2009  23:35            95.316 Hit06.wav
+01/09/2010  10:44         2.509.738 Jungle.wav
+12/03/2009  23:35            65.588 Shot01.wav
+              13 arquivo(s)      3.563.570 bytes
+               0 pasta(s) 48.267.616.256 bytes dispon¡veis

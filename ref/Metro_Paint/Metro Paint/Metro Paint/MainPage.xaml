@@ -1,0 +1,138 @@
+﻿<Page
+    x:Class="Metro_Paint.MainPage"
+    IsTabStop="false"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Metro_Paint"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <Style x:Key="PaintButton" TargetType="Button">
+            <Setter Property="FontFamily" Value="Segoe UI Symbol"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Width" Value="auto"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Grid.Row" Value="0"/>
+        </Style>
+    </Page.Resources>
+    
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.Transitions>
+            <TransitionCollection>
+                <EntranceThemeTransition FromHorizontalOffset="-50" FromVerticalOffset="-50"/>
+            </TransitionCollection>
+        </Grid.Transitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button x:Name="btnExit" Click="btnExit_Click" Style="{StaticResource NoAppBarButtonStyle}" Margin="-10,10,0,0" Width="80"/>
+            <TextBlock x:Name="tbPageTitle" Text="Metro Paint" Style="{StaticResource PageHeaderTextStyle}" Grid.Row="0" Margin="10,0,0,21"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="80,0,-43,0" Grid.Row="1">
+            <Button x:Name="btnLine" Click="btnLine_Click" Content="&#x2571;" Style="{StaticResource PaintButton}" ToolTipService.ToolTip="Line"/>
+            <Button x:Name="btnEllipse" Click="btnEllipse_Click" Style="{StaticResource PaintButton}" Content="&#x25EF;" ToolTipService.ToolTip="Ellipse"/>
+            <Button x:Name="btnPencil" Click="btnPencil_Click" Style="{StaticResource PaintButton}" Content="&#x270E;" ToolTipService.ToolTip="Pencil"/>
+            <Button x:Name="btnRectagle" Click="btnRectagle_Click" Style="{StaticResource PaintButton}" Content="&#x25AD;" ToolTipService.ToolTip="Rectangle"/>
+            <Button x:Name="btnEraser" Click="btnEraser_Click" Style="{StaticResource PaintButton}" Content="&#x2205;" ToolTipService.ToolTip="Eraser"/>
+            <Button x:Name="btnClearScreen" Click="btnClearScreen_Click" Style="{StaticResource PaintButton}" Content="&#x274C;" ToolTipService.ToolTip="Clear Screen"/>
+            <Button x:Name="btnRecognize" Click="btnRecognize_Click" Style="{StaticResource PaintButton}" Content="R" ToolTipService.ToolTip="Handwriting Recognition"/>
+            <TextBlock x:Name="tbBorderColor" Text="Border Colors : " VerticalAlignment="Center" FontSize="15" TextWrapping="Wrap" Padding="15,0,0,0" Margin="0"/>
+            <ComboBox x:Name="cbBorderColor" Width="200" Height="40" ItemsSource="{Binding Colors}" SelectedItem="{Binding SelectedColorName, Mode=TwoWay}" SelectionChanged="cbBorderColor_SelectionChanged" Padding="8,0" Margin="10,0,0,0">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Rectangle Width="35" Height="20" Fill="{Binding Name}" Margin="5,0"/>
+                            <TextBlock Grid.Column="1" Margin="10,0,0,0" Text="{Binding Name}" Foreground="Black"/>
+                        </Grid>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <TextBlock x:Name="tbFillColor" Text="Fill Colors : " VerticalAlignment="Center" FontSize="15" Padding="15,0,0,0"/>
+            <ComboBox x:Name="cbFillColor" Width="200" Height="40" ItemsSource="{Binding Colors}" SelectedItem="{Binding SelectedColorName, Mode=TwoWay}" SelectionChanged="cbFillColor_SelectionChanged" Margin="10,0,0,0">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Rectangle Width="35" Height="20" Fill="{Binding Name}" Margin="5,0"/>
+                            <TextBlock Grid.Column="1" Margin="10,0,0,0" Text="{Binding Name}" Foreground="Black"/>
+                        </Grid>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            
+            <!--<Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="tbBorderColor" Text="Border Colors : " Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" FontSize="15" TextWrapping="Wrap" Grid.RowSpan="3" Padding="15,0,0,0"/>
+                <Button x:Name="btnRed" Background="Red" Height="20" Width="20" Click="btnRed_Click" Grid.Row="0" Grid.Column="1" BorderThickness="0"/>
+                <Button x:Name="btnGreen" Background="Green" Height="20" Width="20" Click="btnGreen_Click" Grid.Row="0" Grid.Column="2" BorderThickness="0"/>
+                <Button x:Name="btnBlue" Background="Blue" Height="20" Width="20" Click="btnBlue_Click" Grid.Row="0" Grid.Column="3" BorderThickness="0"/>
+                <Button x:Name="btnBlack" Background="Black" Height="20" Width="20" Click="btnBlack_Click" Grid.Row="1" Grid.Column="1" BorderThickness="0"/>
+                <Button x:Name="btnYellow" Background="Yellow" Height="20" Width="20" Click="btnYellow_Click" Grid.Row="1" Grid.Column="2" BorderThickness="0"/>
+                <Button x:Name="btnMagenta" Background="Magenta" Height="20" Width="20" Click="btnMagenta_Click" Grid.Row="1" Grid.Column="3" BorderThickness="0"/>
+                <Button x:Name="btnCyan" Background="Cyan" Height="20" Width="20" Click="btnCyan_Click" Grid.Row="2" Grid.Column="1" BorderThickness="0"/>
+                <Button x:Name="btnWhite" Background="White" Height="20" Width="20" Click="btnWhite_Click" Grid.Row="2" Grid.Column="2" BorderThickness="0"/>
+                <Button x:Name="btnPink" Background="Pink" Height="20" Width="20" Click="btnPink_Click" Grid.Row="2" Grid.Column="3" BorderThickness="0"/>
+            </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="tbFillColor" Text="Fill Colors : " Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Grid.RowSpan="3" FontSize="15" TextWrapping="Wrap" Padding="15,0,0,0"/>
+                <Button x:Name="btnFillRed" Background="Red" Height="20" Width="20" Click="btnFillRed_Click" Grid.Row="0" Grid.Column="1" BorderThickness="0"/>
+                <Button x:Name="btnFillGreen" Background="Green" Height="20" Width="20" Click="btnFillGreen_Click" Grid.Row="0" Grid.Column="2" BorderThickness="0"/>
+                <Button x:Name="btnFillBlue" Background="Blue" Height="20" Width="20" Click="btnFillBlue_Click" Grid.Row="0" Grid.Column="3" BorderThickness="0"/>
+                <Button x:Name="btnFillBlack" Background="Black" Height="20" Width="20" Click="btnFillBlack_Click" Grid.Row="1" Grid.Column="1" BorderThickness="0"/>
+                <Button x:Name="btnFillYellow" Background="Yellow" Height="20" Width="20" Click="btnFillYellow_Click" Grid.Row="1" Grid.Column="2" BorderThickness="0"/>
+                <Button x:Name="btnFillMagenta" Background="Magenta" Height="20" Width="20" Click="btnFillMagenta_Click" Grid.Row="1" Grid.Column="3" BorderThickness="0"/>
+                <Button x:Name="btnFillCyan" Background="Cyan" Height="20" Width="20" Click="btnFillCyan_Click" Grid.Row="2" Grid.Column="1" BorderThickness="0"/>
+                <Button x:Name="btnFillWhite" Background="White" Height="20" Width="20" Click="btnFillWhite_Click" Grid.Row="2" Grid.Column="2" BorderThickness="0"/>
+                <Button x:Name="btnFillPink" Background="Pink" Height="20" Width="20" Click="btnFillPink_Click" Grid.Row="2" Grid.Column="3" BorderThickness="0"/>
+            </Grid>-->
+            <TextBlock x:Name="tbStrokeThickness" Text="Stroke Thickness :" FontSize="15" TextWrapping="Wrap" Padding="15,0,0,0" MaxWidth="90" VerticalAlignment="Center"/>
+            <ComboBox x:Name="cbStrokeThickness" SelectionChanged="cbStrokeThickness_SelectionChanged" Margin="10,0,0,0" Height="30"/>
+            
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <TextBox x:Name="txtRecognizedText" Visibility="Visible" Width="1100" Padding="10,3,10,5" Margin="10,0,0,0" TextWrapping="Wrap"/>
+            <StackPanel Width="255" VerticalAlignment="Center">
+                <Button x:Name="btnSaveRecognizedText" Click="btnSaveRecognizedText_Click" Visibility="Visible" Width="155" Content="Save as text" HorizontalAlignment="Center"  />
+                <Button x:Name="btnSaveWritingAsImage" Click="btnSaveWritingAsImage_Click" Visibility="Visible" Width="155" Content="Save as image" HorizontalAlignment="Center" />
+            </StackPanel>
+        </StackPanel>
+        <Canvas Name="canvas" Background="Wheat" Grid.Row="3" Grid.RowSpan="1" Margin="0,20,0,0">
+        </Canvas>
+    </Grid>
+</Page>

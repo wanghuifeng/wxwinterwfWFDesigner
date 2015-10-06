@@ -1,0 +1,13 @@
+﻿<RuleDefinitions xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow">
+	<RuleDefinitions.Conditions>
+		<RuleExpressionCondition Name="启用">
+			<RuleExpressionCondition.Expression>
+				<ns0:CodePrimitiveExpression xmlns:ns0="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+					<ns0:CodePrimitiveExpression.Value>
+						<ns1:Boolean xmlns:ns1="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">true</ns1:Boolean>
+					</ns0:CodePrimitiveExpression.Value>
+				</ns0:CodePrimitiveExpression>
+			</RuleExpressionCondition.Expression>
+		</RuleExpressionCondition>
+	</RuleDefinitions.Conditions>
+</RuleDefinitions>

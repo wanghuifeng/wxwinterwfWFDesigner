@@ -1,0 +1,173 @@
+﻿<UserControl x:Class="Sonic.MediaView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Sonic"      
+     x:Name="ctrlParent"
+    Height="Auto" Width="Auto">
+    
+    <UserControl.Resources>
+
+
+        
+
+        <DataTemplate x:Key="albumItemsTemplate">
+            <local:AlbumView DataContext="{Binding}"/>
+        </DataTemplate>
+
+        <DataTemplate x:Key="mp3ItemsTemplate">
+            
+            <Border x:Name="bord" BorderBrush="Transparent" CornerRadius="5"
+                               HorizontalAlignment="Stretch"
+                               Background="#ff656565">
+                <local:MP3FileView x:Name="ctrl" DataContext="{Binding}"
+                               HorizontalContentAlignment="Stretch"
+                               HorizontalAlignment="Stretch"
+                               Margin="0"
+                               Background="Transparent"/>
+
+            </Border>
+            <DataTemplate.Triggers>
+                <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                    <Setter TargetName="bord" Property="Background" Value="Black"/>
+                </Trigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+
+    </UserControl.Resources>
+    
+    <Grid  Margin="0" VerticalAlignment="Stretch">
+        
+        
+        <Viewbox Width="400" Height="400" HorizontalAlignment="Center"
+                 VerticalAlignment="Center">
+            <local:CircularProgressBar 
+                    Visibility="{Binding MediaViewVM.IsBusy, 
+                    Converter={StaticResource BoolToVisibilityConv}, 
+                    ConverterParameter=false}"/>
+        </Viewbox>        
+        
+        
+        <DockPanel x:Name="dpAlbums"
+                   LastChildFill="True" HorizontalAlignment="Stretch"
+                   VerticalAlignment="Stretch" Visibility="{Binding MediaViewVM.IsBusy, 
+                    Converter={StaticResource BoolToVisibilityConv}, 
+                    ConverterParameter=true}">
+
+
+                <local:FrictionScrollViewer DockPanel.Dock="Bottom"  Height="130"
+                    Style="{x:Null}"
+                    VerticalScrollBarVisibility="Hidden"
+                    HorizontalScrollBarVisibility="Hidden">
+
+                                
+                    <ItemsControl x:Name="albumItems" 
+                      VerticalAlignment="Center" Height="130"
+                      HorizontalAlignment="Stretch" Margin="0"
+                      ItemsSource="{Binding MediaViewVM.AlbumsReturned}"
+                      ItemTemplate="{StaticResource albumItemsTemplate}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+
+                    </ItemsControl>
+
+                </local:FrictionScrollViewer>
+
+
+            <Grid Background="Transparent">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="270"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <local:AlbumView3D x:Name="albumView3D"  
+                       Grid.Row="0" 
+                       Grid.Column="0" 
+                       Grid.RowSpan="1" 
+                       Width="270" 
+                       Height="270"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"/>
+
+
+
+                <StackPanel x:Name="spControls" Grid.Row="1" Grid.Column="0" Visibility="Hidden"
+                    Grid.RowSpan="1" HorizontalAlignment="Left"
+                    Margin="0,5,0,0" VerticalAlignment="Center"
+                    Orientation="Horizontal">
+
+                    <MediaElement x:Name="me" LoadedBehavior="Manual" Visibility="Hidden"
+                                  MediaEnded="Me_MediaEnded"/>
+
+
+                    <Button x:Name="BtnPlayPause" ToolTip="Play" Content="4"
+                            HorizontalAlignment="Left"
+                            Height="50" Width="50" Margin="30,0,0,0" Click="BtnPlayPause_Click"
+                            Template="{StaticResource MediaPlayerButtons}"/>
+
+                    <Button x:Name="BtnStop" ToolTip="Stop" Content="&lt;"
+                            HorizontalAlignment="Left"
+                            Height="40" Width="40" Margin="5,-5,0,0" Click="BtnStop_Click"
+                            Template="{StaticResource MediaPlayerButtons}"/>
+
+
+                    <Grid Width="Auto" HorizontalAlignment="Left"
+                                Height="Auto" Margin="20,0,0,0">
+
+                        <Rectangle Fill="Black" Stroke="Orange" 
+                                   Margin="0" Width="100" Height="10"
+                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+
+
+                        <Rectangle x:Name="percFill" Stroke="Orange" 
+                                   Margin="0" Height="10" Width="0"
+                                   HorizontalAlignment="Left" 
+                                   VerticalAlignment="Stretch">
+                            <Rectangle.Fill>
+                                <LinearGradientBrush EndPoint="0.513,1.408" StartPoint="0.513,0.408">
+                                    <GradientStop Color="#FF62341F" Offset="0"/>
+                                    <GradientStop Color="#4FFFA500" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Rectangle.Fill>
+                        </Rectangle>
+
+                    </Grid>
+
+                </StackPanel>
+                
+
+
+                <ScrollViewer Grid.Row="0" Grid.Column="1" 
+                              Grid.RowSpan="2" 
+                              Width="Auto" Height="Auto" Margin="0,15,0,0">
+                    <ItemsControl x:Name="mp3Items" AlternationCount="2"
+                      VerticalAlignment="Top"
+                      HorizontalAlignment="Stretch" Margin="0,0,0,0"
+                                  
+                      ItemTemplate="{StaticResource mp3ItemsTemplate}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+
+                    </ItemsControl>
+                </ScrollViewer>
+                
+ 
+                
+                
+            </Grid>
+
+        </DockPanel>
+
+        
+    </Grid>
+</UserControl>

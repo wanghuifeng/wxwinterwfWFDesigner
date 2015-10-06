@@ -1,0 +1,289 @@
+﻿<Application
+    x:Class="PuzzleMetro.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:local="using:PuzzleMetro">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <!-- 
+                    Styles that define common aspects of the platform look and feel
+                    Required by Visual Studio project and item templates
+                 -->
+                <ResourceDictionary Source="Common/StandardStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <sys:String x:Key="AppName">Metro Puzzle</sys:String>
+            <Style x:Key="TitleStyle" TargetType="TextBlock">
+                <Setter Property="Foreground" Value="#707070" />
+                <Setter Property="FontFamily" Value="Segoe UI Light" />
+                <Setter Property="FontSize" Value="48" />
+            </Style>
+            <Style x:Key="H1Style" TargetType="TextBlock">
+                <Setter Property="Foreground" Value="#707070" />
+                <Setter Property="FontFamily" Value="Segoe UI Light" />
+                <Setter Property="FontSize" Value="36" />
+                <Setter Property="Margin" Value="0,0,0,25" />
+            </Style>
+            <Style x:Key="H2Style" TargetType="TextBlock">
+                <Setter Property="Foreground" Value="#707070" />
+                <Setter Property="FontFamily" Value="Segoe UI Light" />
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="Margin" Value="0,0,0,0" />
+            </Style>
+            <Style x:Key="H3Style" TargetType="TextBlock">
+                <Setter Property="Foreground" Value="#db7100" />
+                <Setter Property="FontFamily" Value="Segoe UI Light" />
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="Margin" Value="0,0,0,5" />
+            </Style>
+            <Style x:Key="TextStyle" TargetType="TextBlock">
+                <Setter Property="Foreground" Value="#2a2a2a" />
+                <Setter Property="FontFamily" Value="Segoe UI Light" />
+                <Setter Property="FontSize" Value="16" />
+            </Style>
+            <Style x:Key="MenuTitletyle" TargetType="TextBlock">
+                <Setter Property="Foreground" Value="#707070" />
+                <Setter Property="FontFamily" Value="Segoe UI Light" />
+                <Setter Property="FontSize" Value="36" />
+            </Style>
+            <Style x:Key="NumberStyle" TargetType="TextBlock">
+                <Setter Property="Foreground" Value="#707070" />
+                <Setter Property="FontFamily" Value="Segoe UI Light" />
+                <Setter Property="FontSize" Value="60" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+            </Style>
+            <Style x:Key="BorderStyle" TargetType="Border">
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="Height" Value="100" />
+                <Setter Property="Width" Value="100" />
+                <Setter Property="BorderThickness" Value="3" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="BorderBrush" Value="#000" />
+                <Setter Property="Background" Value="#FFF" />
+            </Style>
+            <Style x:Key="BorderStyleHidden" TargetType="Border">
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="Height" Value="150" />
+                <Setter Property="Width" Value="150" />
+                <Setter Property="BorderThickness" Value="7" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="BorderBrush" Value="#FFF" />
+                <Setter Property="Background" Value="#FFF" />
+            </Style>
+            <Style x:Key="RateButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="9"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="MouseOver"/>
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <ColorAnimation Duration="0" To="White" Storyboard.TargetProperty="(Ellipse.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ButtonEllipse" />
+                                                <ColorAnimation Duration="0" To="Black" Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="Glyph" />
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <StackPanel Orientation="Vertical">
+                                    <Grid  Margin="0,14,0,5" >
+                                        <Ellipse x:Name="ButtonEllipse" Height="40" Width="40" Fill="Transparent" HorizontalAlignment="Center"
+											 Stroke="White" StrokeThickness="2" VerticalAlignment="Center"/>
+                                        <TextBlock x:Name="Glyph" Text="©" FontFamily="Symbol" FontSize="30" HorizontalAlignment="Center"
+											   VerticalAlignment="Center"/>
+                                    </Grid>
+                                    <TextBlock Text="{TemplateBinding Content}" HorizontalAlignment="Center"
+										   FontFamily="Segoe UI" FontSize="12"/>
+                                </StackPanel>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- This is the style that defines the "Forward" button with the arrow. 
+		         Note that instead of using a graphic for the arrow the we are
+			       using the arrow character in the Wingdings 3 font. This keeps us from 
+             having to define a graphic and enables us to style the individual 
+             pieces of the button independently. -->
+            <Style x:Key="ForwardButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="9"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="MouseOver"/>
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <ColorAnimation Duration="0" To="White" Storyboard.TargetProperty="(Ellipse.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ButtonEllipse" />
+                                                <ColorAnimation Duration="0" To="Black" Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="Glyph" />
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <StackPanel Orientation="Vertical">
+                                    <Grid  Margin="0,14,0,5" >
+                                        <Ellipse x:Name="ButtonEllipse" Height="40" Width="40" Fill="Transparent" HorizontalAlignment="Center"
+											 Stroke="White" StrokeThickness="2" VerticalAlignment="Center"/>
+                                        <TextBlock x:Name="Glyph" Text="Ú" FontFamily="Wingdings 3" FontSize="30" HorizontalAlignment="Center"
+											   VerticalAlignment="Center"/>
+                                    </Grid>
+                                    <TextBlock Text="{TemplateBinding Content}" HorizontalAlignment="Center"
+										   FontFamily="Segoe UI" FontSize="12"/>
+                                </StackPanel>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- This is the style that defines the "Refresh" button with the circular arrow. 
+		         Note that instead of using a graphic for the arrow the we are
+			       using the arrow character in the Wingdings 3 font. This keeps us from 
+             having to define a graphic and enables us to style the individual 
+             pieces of the button independently. -->
+
+            <Style x:Key="RefreshButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="9"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="MouseOver"/>
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <ColorAnimation Duration="0" To="White" Storyboard.TargetProperty="(Ellipse.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ButtonEllipse" />
+                                                <ColorAnimation Duration="0" To="Black" Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="Glyph" />
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <StackPanel Orientation="Vertical">
+                                    <Grid  Margin="0,14,0,5" >
+                                        <Ellipse x:Name="ButtonEllipse" Height="40" Width="40" Fill="Transparent" HorizontalAlignment="Center"
+											 Stroke="White" StrokeThickness="2" VerticalAlignment="Center"/>
+                                        <TextBlock x:Name="Glyph" Text="P" FontFamily="Wingdings 3" FontSize="30" HorizontalAlignment="Center"
+											   VerticalAlignment="Center"/>
+                                    </Grid>
+                                    <TextBlock Text="{TemplateBinding Content}" HorizontalAlignment="Center"
+										   FontFamily="Segoe UI" FontSize="12"/>
+                                </StackPanel>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- This is the style that defines the "More" button with the ellipsis. 
+		         Note that instead of using a graphic for the ellipsis the we are
+      			 using the ellipsis character in the Symbol font. This keeps us from 
+             having to define a graphic and enables us to style the individual 
+             pieces of the button independently. -->
+            <Style x:Key="MoreButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="9"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="MouseOver"/>
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <ColorAnimation Duration="0" To="White" Storyboard.TargetProperty="(Ellipse.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ButtonEllipse" />
+                                                <ColorAnimation Duration="0" To="Black" Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="Glyph" />
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <StackPanel Orientation="Vertical">
+                                    <Grid  Margin="0,14,0,5" >
+                                        <Ellipse x:Name="ButtonEllipse" Height="40" Width="40" Fill="Transparent" HorizontalAlignment="Center"
+											 Stroke="White" StrokeThickness="2" VerticalAlignment="Center"/>
+                                        <TextBlock x:Name="Glyph" Text="¼" FontFamily="Symbol" FontSize="25" HorizontalAlignment="Center"
+											   VerticalAlignment="Center" Margin="0,-20,0,0"/>
+                                    </Grid>
+                                    <TextBlock Text="{TemplateBinding Content}" HorizontalAlignment="Center"
+										   FontFamily="Segoe UI" FontSize="12"/>
+                                </StackPanel>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- This is the style that defines the "Back" button with the arrow 
+		         Note that instead of using a graphic for the arrow the we are
+      			 using the arrow character in the Wingdings 3 font. This keeps us from 
+             having to define a graphic and enables us to style the individual 
+             pieces of the button independently. -->
+            <Style x:Key="BackButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="9"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="MouseOver"/>
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <ColorAnimation Duration="0" To="White" Storyboard.TargetProperty="(Ellipse.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ButtonEllipse" />
+                                                <ColorAnimation Duration="0" To="Black" Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="Glyph" />
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <StackPanel Orientation="Vertical">
+                                    <Grid  Margin="0,14,0,5" >
+                                        <Ellipse x:Name="ButtonEllipse" Height="40" Width="40" Fill="Transparent" HorizontalAlignment="Center"
+											 Stroke="White" StrokeThickness="2" VerticalAlignment="Center"/>
+                                        <TextBlock x:Name="Glyph" Text="Ù" FontFamily="Wingdings 3" FontSize="30" HorizontalAlignment="Center"
+											   VerticalAlignment="Center" />
+                                    </Grid>
+                                    <TextBlock Text="{TemplateBinding Content}" HorizontalAlignment="Center"
+										   FontFamily="Segoe UI" FontSize="12"/>
+                                </StackPanel>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnookerCore", "SnookerService\SnookerCore\SnookerCore.csproj", "{6CA66557-CBAB-4B7A-BE3B-B1D7A809F3BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnookerService", "SnookerService\SnookerService\SnookerService.csproj", "{C02B1826-290F-4373-9F51-31216A3238C8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6CA66557-CBAB-4B7A-BE3B-B1D7A809F3BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CA66557-CBAB-4B7A-BE3B-B1D7A809F3BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CA66557-CBAB-4B7A-BE3B-B1D7A809F3BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CA66557-CBAB-4B7A-BE3B-B1D7A809F3BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C02B1826-290F-4373-9F51-31216A3238C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C02B1826-290F-4373-9F51-31216A3238C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C02B1826-290F-4373-9F51-31216A3238C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C02B1826-290F-4373-9F51-31216A3238C8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

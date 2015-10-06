@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Restful Service Layer", "Restful Service Layer", "{0337CBC9-E68B-441D-962C-831464403AD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoPlaces", "GeoPlaces\GeoPlaces.csproj", "{723CBE66-6007-423D-A1AE-85C813E73AD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoPlacesService", "GeoPlacesService\GeoPlacesService.csproj", "{DF471F80-1939-4635-8BDE-700541F6DA12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoPlacesServiceHost", "GeoPlacesServiceHost\GeoPlacesServiceHost.csproj", "{6F04CF93-AB19-4525-AB9A-F0821A219826}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Layer", "Data Layer", "{BDA67197-1E47-46C9-9C38-5697AD50C415}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoPlacesData", "GeoPlacesData\GeoPlacesData.csproj", "{B6A66B60-EA06-46BD-8CBC-F62AB79CE7AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{723CBE66-6007-423D-A1AE-85C813E73AD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{723CBE66-6007-423D-A1AE-85C813E73AD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{723CBE66-6007-423D-A1AE-85C813E73AD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{723CBE66-6007-423D-A1AE-85C813E73AD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF471F80-1939-4635-8BDE-700541F6DA12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF471F80-1939-4635-8BDE-700541F6DA12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF471F80-1939-4635-8BDE-700541F6DA12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF471F80-1939-4635-8BDE-700541F6DA12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F04CF93-AB19-4525-AB9A-F0821A219826}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F04CF93-AB19-4525-AB9A-F0821A219826}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F04CF93-AB19-4525-AB9A-F0821A219826}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F04CF93-AB19-4525-AB9A-F0821A219826}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6A66B60-EA06-46BD-8CBC-F62AB79CE7AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6A66B60-EA06-46BD-8CBC-F62AB79CE7AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6A66B60-EA06-46BD-8CBC-F62AB79CE7AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6A66B60-EA06-46BD-8CBC-F62AB79CE7AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DF471F80-1939-4635-8BDE-700541F6DA12} = {0337CBC9-E68B-441D-962C-831464403AD2}
+		{6F04CF93-AB19-4525-AB9A-F0821A219826} = {0337CBC9-E68B-441D-962C-831464403AD2}
+		{B6A66B60-EA06-46BD-8CBC-F62AB79CE7AA} = {BDA67197-1E47-46C9-9C38-5697AD50C415}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,16 @@
+System.Workflow.Activities.ListenActivity,System.Workflow.Activities
+System.Workflow.Activities.ParallelActivity,System.Workflow.Activities
+System.Workflow.Activities.SequenceActivity,System.Workflow.Activities
+System.Workflow.Activities.StateActivity,System.Workflow.Activities
+System.Workflow.Activities.SetStateActivity,System.Workflow.Activities
+System.Workflow.Activities.StateInitializationActivity,System.Workflow.Activities
+System.Workflow.Activities.StateFinalizationActivity,System.Workflow.Activities
+System.Workflow.Activities.EventDrivenActivity,System.Workflow.Activities
+System.Workflow.Activities.HandleExternalEventActivity,System.Workflow.Activities
+System.Workflow.Activities.CallExternalMethodActivity,System.Workflow.Activities
+System.Workflow.Activities.DelayActivity,System.Workflow.Activities
+System.Workflow.Activities.WhileActivity,System.Workflow.Activities
+System.Workflow.Activities.IfElseActivity,System.Workflow.Activities
+System.Workflow.Activities.PolicyActivity,System.Workflow.Activities
+System.Workflow.ComponentModel.TerminateActivity,System.Workflow.ComponentModel
+System.Workflow.ComponentModel.SuspendActivity,System.Workflow.ComponentModel
